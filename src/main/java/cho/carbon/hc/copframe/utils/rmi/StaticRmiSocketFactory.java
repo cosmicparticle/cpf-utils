@@ -8,11 +8,12 @@ import java.net.Socket;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class StaticRmiSocketFactory implements RMIClientSocketFactory, RMIServerSocketFactory, Serializable {
 
-	Logger logger = Logger.getLogger(StaticRmiSocketFactory.class);
+	Logger logger = LoggerFactory.getLogger(StaticRmiSocketFactory.class);
 	/**
 	 * 
 	 */

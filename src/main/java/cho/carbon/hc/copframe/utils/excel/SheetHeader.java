@@ -4,12 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SheetHeader {
 	private ExcelRow headerRow;
 	private Map<String, Integer> cnameIndexMap = new HashMap();
-	Logger logger = Logger.getLogger(SheetHeader.class);
+	Logger logger = LoggerFactory.getLogger(SheetHeader.class);
 
 	public SheetHeader(ExcelRow headerRow) {
 		this.headerRow = headerRow;
@@ -44,7 +45,7 @@ public class SheetHeader {
 							break;
 						}
 					} catch (Exception var12) {
-						this.logger.error("处理单元时发生错误", var12);
+						this.logger.error("处理单元时发生错�?", var12);
 					}
 				}
 			}

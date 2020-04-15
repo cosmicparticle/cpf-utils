@@ -7,7 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cho.carbon.hc.copframe.utils.FormatUtils;
 
@@ -18,13 +19,13 @@ import cho.carbon.hc.copframe.utils.FormatUtils;
  * 将对象的字段转换成XmlNode对象，当前只能转换一层，无法嵌套转换
  * </p>
  * @author Copperfield Zhang
- * @date 2017年3月9日 下午9:17:17
- * @since 2017年3月9日 下午9:17:17
+ * @date 2017�?3�?9�? 下午9:17:17
+ * @since 2017�?3�?9�? 下午9:17:17
  * @param <T>
  */
 public class XMLConverter<T> {
 	
-	Logger logger = Logger.getLogger(XMLConverter.class);
+	Logger logger = LoggerFactory.getLogger(XMLConverter.class);
 	
 	public XmlNode doConvert(T obj) throws XMLException{
 		return doConvert(obj, new XMLConvertConfig());
@@ -41,7 +42,7 @@ public class XMLConverter<T> {
 	public XmlNode doConvert(T obj, XMLConvertConfig config) throws XMLException{
 		XmlNode node = new Dom4jNode();
 		Class<?> objClass = obj.getClass();
-		//获得所有字段
+		//获得�?有字�?
 		Map<String, Field> fieldMap = getAllFieldMap(objClass);
 		StringBuffer nullFields = new StringBuffer();
 		StringBuffer exceedLengthFields = new StringBuffer();
@@ -85,7 +86,7 @@ public class XMLConverter<T> {
 			errMsg += "必需字段[" + nullFields + "]为null";
 		}
 		if(exceedLengthFields.length() > 0){
-			errMsg += "字段[" + exceedLengthFields + "]的长度超出规定";
+			errMsg += "字段[" + exceedLengthFields + "]的长度超出规�?";
 		}
 		if(!errMsg.isEmpty()){
 			throw new XMLException(errMsg);
@@ -95,8 +96,8 @@ public class XMLConverter<T> {
 	
 	Map<String, Field> allFieldMap = null;
 	/**
-	 * 遍历类的所有字段，包括超类的字段
-	 * 返回一个map。map的key是字段的tagName
+	 * 遍历类的�?有字段，包括超类的字�?
+	 * 返回�?个map。map的key是字段的tagName
 	 * @param clazz
 	 * @return
 	 */

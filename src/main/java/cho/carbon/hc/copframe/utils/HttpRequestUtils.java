@@ -17,7 +17,8 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -29,17 +30,17 @@ import cho.carbon.hc.copframe.utils.xml.XmlNode;
  * 
  * <p>Title: HttpRequestUtils</p>
  * <p>Description: </p><p>
- * http请求工具类
+ * http请求工具�?
  * </p>
  * @author Copperfield Zhang
- * @date 2017年3月9日 下午9:15:54
+ * @date 2017�?3�?9�? 下午9:15:54
  */
 public class HttpRequestUtils {
 	
-	static Logger logger = Logger.getLogger(HttpRequestUtils.class);
+	static Logger logger = LoggerFactory.getLogger(HttpRequestUtils.class);
 	
 	/**
-	 * 用于获取当前请求的完整url，包括get方式提交的参数
+	 * 用于获取当前请求的完整url，包括get方式提交的参�?
 	 * @param request
 	 * @param withoutPort 是否要去去除端口
 	 * @return
@@ -49,7 +50,7 @@ public class HttpRequestUtils {
 	}
 	
 	/**
-	 * 用于获取当前请求的完整url，包括get方式提交的参数
+	 * 用于获取当前请求的完整url，包括get方式提交的参�?
 	 * @param request
 	 * @param withoutPort 是否要去去除端口
 	 * @return
@@ -76,13 +77,13 @@ public class HttpRequestUtils {
 		if(reqURI.startsWith(contextPath)){
 			return reqURI.substring(contextPath.length(), reqURI.length() );
 		}else{
-			logger.error("获得uri失败，requestURI为[" + reqURI + "],contextPath为[" + contextPath + "]，无法截取");
+			logger.error("获得uri失败，requestURI为[" + reqURI + "],contextPath为[" + contextPath + "]，无法截�?");
 			return reqURI;
 		}
 	}
 	
 	/**
-	 * 将request中parameter数据转到attribute中
+	 * 将request中parameter数据转到attribute�?
 	 * @param request
 	 */
 	public static void restoreParametersToAttribute(HttpServletRequest request){
@@ -99,7 +100,7 @@ public class HttpRequestUtils {
 	}
 	
 	/**
-	 * 发送http的post请求。post请求只能通过正文来添加参数值
+	 * 发�?�http的post请求。post请求只能通过正文来添加参数�??
 	 * @param url 请求地址
 	 * @param contentType 请求正文类型
 	 * @param content 请求正文
@@ -110,7 +111,7 @@ public class HttpRequestUtils {
 			//打开TCP连接
 			URL urlObject = new URL(url);
 			HttpURLConnection connection = (HttpURLConnection) urlObject.openConnection();
-			//设置POST请求的必要参数
+			//设置POST请求的必要参�?
 			connection.setRequestMethod("POST");
 			connection.setDoOutput(true);
 			connection.setDoInput(true);
@@ -137,15 +138,15 @@ public class HttpRequestUtils {
 			}
 			return buffer.toString();
 		} catch (MalformedURLException e) {
-			logger.error(e);
+			logger.error(e.toString());
 		} catch (IOException e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
 		return null;
 	}
 	
 	/**
-	 * post发送请求，并且返回数据为JSON数据
+	 * post发�?�请求，并且返回数据为JSON数据
 	 * @param url 请求地址
 	 * @param contentType 正文类型
 	 * @param content 请求正文
@@ -159,7 +160,7 @@ public class HttpRequestUtils {
 		return null;
 	}
 	/**
-	 * post发送请求，并且返回数据为JSON
+	 * post发�?�请求，并且返回数据为JSON
 	 * @param url 请求地址
 	 * @param parameters 请求参数
 	 * @return
@@ -174,7 +175,7 @@ public class HttpRequestUtils {
 		return postAndReturnJson(url, "utf-8", content.toString());
 	}
 	/**
-	 * post发送请求，请求内容为json，响应的内容也是json
+	 * post发�?�请求，请求内容为json，响应的内容也是json
 	 * @param url
 	 * @param jo
 	 * @return
@@ -197,7 +198,7 @@ public class HttpRequestUtils {
 		try {
 			return new Dom4jNode(result);
 		} catch (XMLException | UnsupportedEncodingException e) {
-			logger.error("解析xml时发生错误" + result, e);
+			logger.error("解析xml时发生错�?" + result, e);
 		}
 		return null;
 	}
@@ -223,7 +224,7 @@ public class HttpRequestUtils {
 	}
 	       
 	/**
-	 * 根据当前请求获得项目的磁盘路径
+	 * 根据当前请求获得项目的磁盘路�?
 	 * @param request
 	 * @param path
 	 * @return

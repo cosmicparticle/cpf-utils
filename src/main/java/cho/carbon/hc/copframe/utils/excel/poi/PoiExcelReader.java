@@ -5,7 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -18,7 +19,7 @@ import cho.carbon.hc.copframe.utils.excel.SheetReader;
 public class PoiExcelReader implements ExcelReader {
 	private Workbook workbook;
 	private final ExcelVersion version;
-	static Logger logger = Logger.getLogger(PoiExcelReader.class);
+	static Logger logger = LoggerFactory.getLogger(PoiExcelReader.class);
 
 	PoiExcelReader(ExcelVersion version) {
 		this.version = version;
@@ -62,7 +63,7 @@ public class PoiExcelReader implements ExcelReader {
 				throw new ExcelException("读取excel数据失败", var4);
 			}
 		} else {
-			throw new ExcelException("根据文件名" + fileName + "没能匹配到对应的Excel版本");
+			throw new ExcelException("根据文件�?" + fileName + "没能匹配到对应的Excel版本");
 		}
 	}
 

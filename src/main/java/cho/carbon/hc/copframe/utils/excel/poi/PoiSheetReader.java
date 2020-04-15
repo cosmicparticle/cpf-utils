@@ -3,7 +3,8 @@ package cho.carbon.hc.copframe.utils.excel.poi;
 import java.util.TreeSet;
 import java.util.function.Function;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
@@ -20,7 +21,7 @@ import cho.carbon.hc.copframe.utils.excel.SheetReader;
 
 public class PoiSheetReader implements SheetReader {
 	private Sheet sheet;
-	Logger logger = Logger.getLogger(PoiSheetReader.class);
+	Logger logger = LoggerFactory.getLogger(PoiSheetReader.class);
 
 	public PoiSheetReader(Sheet sheet) {
 		if (sheet != null) {
@@ -73,7 +74,7 @@ public class PoiSheetReader implements SheetReader {
 	}
 
 	public CheckResult check(CheckOptions options) {
-		CheckResult result = new CheckResult(true, "检测完成");
+		CheckResult result = new CheckResult(true, "�?测完�?");
 		return result;
 	}
 
@@ -107,7 +108,7 @@ public class PoiSheetReader implements SheetReader {
 						break;
 					}
 				} catch (Exception var14) {
-					this.logger.error(var14);
+					this.logger.error(var14.toString());
 				}
 			}
 

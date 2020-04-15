@@ -2,7 +2,8 @@ package cho.carbon.hc.copframe.test;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import cho.carbon.hc.copframe.utils.TreeTable;
@@ -11,7 +12,7 @@ import cho.carbon.hc.copframe.utils.excel.SheetReader;
 import cho.carbon.hc.copframe.utils.excel.poi.PoiExcelReader;
 
 public class TestExcelReader {
-	Logger logger = Logger.getLogger(TestExcelReader.class);
+	Logger logger = LoggerFactory.getLogger(TestExcelReader.class);
 
 //	@Test
 	public void readTest() {
