@@ -5,7 +5,7 @@
 
 	<groupId>cho.carbon.hc.copframe</groupId>
 	<artifactId>cpf-utils</artifactId>
-	<version>1.1</version>
+	<version>2.1</version>
 	<packaging>jar</packaging>
 
 	<name>cpf-utils</name>
