@@ -16,10 +16,10 @@ import cho.carbon.hc.copframe.utils.FormatUtils;
  * 
  * <p>Title: XMLConverter</p>
  * <p>Description: </p><p>
- *  将对象的字段转换成XmlNode对象，当前只能转换一层，无法嵌套转换
+ * 将对象的字段转换成XmlNode对象，当前只能转换一层，无法嵌套转换
  * </p>
  * @author Copperfield Zhang
-* @date 2017年3月9日 下午9:17:17
+ * @date 2017年3月9日 下午9:17:17
  * @since 2017年3月9日 下午9:17:17
  * @param <T>
  */

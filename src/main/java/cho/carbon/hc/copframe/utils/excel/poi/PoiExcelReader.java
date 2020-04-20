@@ -5,11 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cho.carbon.hc.copframe.utils.excel.ExcelException;
 import cho.carbon.hc.copframe.utils.excel.ExcelReader;
@@ -30,10 +31,10 @@ public class PoiExcelReader implements ExcelReader {
 			try {
 				return createReader((String) file.getName(), new FileInputStream(file));
 			} catch (FileNotFoundException var2) {
-				throw new ExcelException("Excelæ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°");
+				throw new ExcelException("Excel文件没有找到");
 			}
 		} else {
-			throw new ExcelException("æ²¡æœ‰æ‰¾åˆ°æ–‡ä»¶" + file);
+			throw new ExcelException("没有找到文件" + file);
 		}
 	}
 
@@ -43,7 +44,7 @@ public class PoiExcelReader implements ExcelReader {
 			reader.read(inputStream);
 			return reader;
 		} else {
-			throw new ExcelException("å‚æ•°ä¸èƒ½ä¸ºç©º");
+			throw new ExcelException("参数不能为空");
 		}
 	}
 
@@ -60,10 +61,10 @@ public class PoiExcelReader implements ExcelReader {
 				reader.read(inputStream);
 				return reader;
 			} catch (ExcelException var4) {
-				throw new ExcelException("è¯»å–excelæ•°æ®å¤±è´¥", var4);
+				throw new ExcelException("读取excel数据失败", var4);
 			}
 		} else {
-				throw new ExcelException("根据文件名" + fileName + "没能匹配到对应的Excel版本");
+			throw new ExcelException("根据文件名" + fileName + "没能匹配到对应的Excel版本");
 		}
 	}
 
@@ -76,7 +77,7 @@ public class PoiExcelReader implements ExcelReader {
 			}
 
 		} catch (IOException var3) {
-			throw new ExcelException("è¯»å–è¾“å…¥æµæ—¶å‘ç”Ÿé”™è¯¯", var3);
+			throw new ExcelException("读取输入流时发生错误", var3);
 		}
 	}
 

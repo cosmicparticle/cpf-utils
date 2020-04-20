@@ -33,7 +33,7 @@ import cho.carbon.hc.copframe.utils.xml.XmlNode;
  * http请求工具类
  * </p>
  * @author Copperfield Zhang
- * @date 2017�?3�?9�? 下午9:15:54
+ * @date 2017年3月9日 下午9:15:54
  */
 public class HttpRequestUtils {
 	
@@ -83,7 +83,7 @@ public class HttpRequestUtils {
 	}
 	
 	/**
-	 *将request中parameter数据转到attribute中
+	 * 将request中parameter数据转到attribute中
 	 * @param request
 	 */
 	public static void restoreParametersToAttribute(HttpServletRequest request){
@@ -146,7 +146,7 @@ public class HttpRequestUtils {
 	}
 	
 	/**
-	 *  post发送请求，并且返回数据为JSON数据
+	 * post发送请求，并且返回数据为JSON数据
 	 * @param url 请求地址
 	 * @param contentType 正文类型
 	 * @param content 请求正文
@@ -160,7 +160,7 @@ public class HttpRequestUtils {
 		return null;
 	}
 	/**
-	 *  post发送请求，并且返回数据为JSON数据
+	 * post发送请求，并且返回数据为JSON
 	 * @param url 请求地址
 	 * @param parameters 请求参数
 	 * @return
@@ -224,7 +224,7 @@ public class HttpRequestUtils {
 	}
 	       
 	/**
-	 *  根据当前请求获得项目的磁盘路径
+	 * 根据当前请求获得项目的磁盘路径
 	 * @param request
 	 * @param path
 	 * @return

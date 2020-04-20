@@ -11,8 +11,6 @@ import java.util.function.Supplier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import cho.carbon.hc.copframe.utils.Assert;
 /**
  * 具有时效性的Map，该Map只有获取方法，但是在获取的时候
  * @author Copperfield
@@ -59,8 +57,8 @@ public class TimelinessMap<K, V>{
 	}
 
 	/**
-	 * èŽ·å¾—keyå¯¹åº”çš„value
-	 * å½“keyèŽ·å–çš„æ—¶é—´è¶…æ—¶æ—¶ï¼Œä¼šè°ƒç”¨loadFunctioné‡æ–°èŽ·å–valueå¯¹è±¡
+	 * 获得key对应的value
+	 * 当key获取的时间超时时，会调用loadFunction重新获取value对象
 	 * @param key
 	 * @param loadFunction
 	 * @return
@@ -111,8 +109,8 @@ public class TimelinessMap<K, V>{
 	}
 
 	/**
-	 * æ ¹æ®å¤šä¸ªkeyèŽ·å¾—å¯¹åº”çš„æ‰€æœ‰çš„valueçš„Map
-	 * èŽ·å¾—çš„valueä¼šåœ¨è¿‡æœŸåŽè°ƒç”¨loadFunctioné‡æ–°èŽ·å–
+	 * 根据多个key获得对应的所有的value的Map
+	 * 获得的value会在过期后调用loadFunction重新获取
 	 * @param keys
 	 * @param resultMap
 	 * @param loadFunction
