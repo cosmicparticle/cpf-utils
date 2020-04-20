@@ -74,7 +74,7 @@ public class PoiSheetReader implements SheetReader {
 	}
 
 	public CheckResult check(CheckOptions options) {
-		CheckResult result = new CheckResult(true, "�?测完�?");
+		CheckResult result = new CheckResult(true, "检测完成");
 		return result;
 	}
 

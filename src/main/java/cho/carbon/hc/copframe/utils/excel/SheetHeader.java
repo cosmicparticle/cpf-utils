@@ -40,12 +40,12 @@ public class SheetHeader {
 					try {
 						cellHandler.accept(cell);
 					} catch (ExcelException var11) {
-						this.logger.error("抛出ExcelException", var11);
+						this.logger.error("æŠ›å‡ºExcelException", var11);
 						if (var11.forBreak()) {
 							break;
 						}
 					} catch (Exception var12) {
-						this.logger.error("处理单元时发生错�?", var12);
+						this.logger.error("处理单元时发生错误", var12);
 					}
 				}
 			}

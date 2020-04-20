@@ -14,9 +14,9 @@ import org.slf4j.LoggerFactory;
 
 import cho.carbon.hc.copframe.utils.Assert;
 /**
- * 具有时效性的Map，该Map只有获取方法，但是在获取的时�?
+ * 具有时效性的Map，该Map只有获取方法，但是在获取的时候
  * @author Copperfield
- * @date 2018�?4�?11�? 下午4:13:59
+ * @date 2018年4月11日 下午4:13:59
  * @param <K>
  * @param <V>
  */
@@ -37,7 +37,7 @@ public class TimelinessMap<K, V>{
 	}
 	
 	/**
-	 * 构�?�一个时效�?�Map
+	 * 构造一个时效性Map
 	 * @param source
 	 * @param timeout
 	 */
@@ -59,8 +59,8 @@ public class TimelinessMap<K, V>{
 	}
 
 	/**
-	 * 获得key对应的value
-	 * 当key获取的时间超时时，会调用loadFunction重新获取value对象
+	 * èŽ·å¾—keyå¯¹åº”çš„value
+	 * å½“keyèŽ·å–çš„æ—¶é—´è¶…æ—¶æ—¶ï¼Œä¼šè°ƒç”¨loadFunctioné‡æ–°èŽ·å–valueå¯¹è±¡
 	 * @param key
 	 * @param loadFunction
 	 * @return
@@ -81,7 +81,7 @@ public class TimelinessMap<K, V>{
 					source.put(k, v);
 					lastOperateTimeMap.put(k, System.currentTimeMillis());
 				} catch (Exception e) {
-					throw new RuntimeException("加载key[" + k + "]对应的�?�时发生错误", e);
+					throw new RuntimeException("加载key[" + k + "]对应的值时发生错误", e);
 				}
 			});
 			for (K key : keys) {
@@ -111,8 +111,8 @@ public class TimelinessMap<K, V>{
 	}
 
 	/**
-	 * 根据多个key获得对应的所有的value的Map
-	 * 获得的value会在过期后调用loadFunction重新获取
+	 * æ ¹æ®å¤šä¸ªkeyèŽ·å¾—å¯¹åº”çš„æ‰€æœ‰çš„valueçš„Map
+	 * èŽ·å¾—çš„valueä¼šåœ¨è¿‡æœŸåŽè°ƒç”¨loadFunctioné‡æ–°èŽ·å–
 	 * @param keys
 	 * @param resultMap
 	 * @param loadFunction
@@ -134,7 +134,7 @@ public class TimelinessMap<K, V>{
 					lastOperateTimeMap.put(k, now);
 				});
 			} catch (Exception e) {
-				logger.debug("执行根据多个Key获得对应的value的map时发生错�?", e);
+				logger.debug("执行根据多个Key获得对应的value的map时发生错误", e);
 			}
 		}
 		keys.forEach(k->resultMap.put(k, source.get(k)));
@@ -146,7 +146,7 @@ public class TimelinessMap<K, V>{
 			source.put(key, value);
 			lastOperateTimeMap.put(key, System.currentTimeMillis());
 		} catch (Exception e) {
-			throw new RuntimeException("加载key[" + key + "]对应的�?�时发生错误", e);
+			throw new RuntimeException("加载key[" + key + "]对应的值时发生错误", e);
 		}
 	}
 	

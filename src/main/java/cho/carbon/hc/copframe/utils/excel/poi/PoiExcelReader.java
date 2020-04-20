@@ -30,10 +30,10 @@ public class PoiExcelReader implements ExcelReader {
 			try {
 				return createReader((String) file.getName(), new FileInputStream(file));
 			} catch (FileNotFoundException var2) {
-				throw new ExcelException("Excel文件没有找到");
+				throw new ExcelException("Excelæ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°");
 			}
 		} else {
-			throw new ExcelException("没有找到文件" + file);
+			throw new ExcelException("æ²¡æœ‰æ‰¾åˆ°æ–‡ä»¶" + file);
 		}
 	}
 
@@ -43,7 +43,7 @@ public class PoiExcelReader implements ExcelReader {
 			reader.read(inputStream);
 			return reader;
 		} else {
-			throw new ExcelException("参数不能为空");
+			throw new ExcelException("å‚æ•°ä¸èƒ½ä¸ºç©º");
 		}
 	}
 
@@ -60,10 +60,10 @@ public class PoiExcelReader implements ExcelReader {
 				reader.read(inputStream);
 				return reader;
 			} catch (ExcelException var4) {
-				throw new ExcelException("读取excel数据失败", var4);
+				throw new ExcelException("è¯»å–excelæ•°æ®å¤±è´¥", var4);
 			}
 		} else {
-			throw new ExcelException("根据文件�?" + fileName + "没能匹配到对应的Excel版本");
+				throw new ExcelException("根据文件名" + fileName + "没能匹配到对应的Excel版本");
 		}
 	}
 
@@ -76,7 +76,7 @@ public class PoiExcelReader implements ExcelReader {
 			}
 
 		} catch (IOException var3) {
-			throw new ExcelException("读取输入流时发生错误", var3);
+			throw new ExcelException("è¯»å–è¾“å…¥æµæ—¶å‘ç”Ÿé”™è¯¯", var3);
 		}
 	}
 
